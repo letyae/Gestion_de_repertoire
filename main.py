@@ -40,14 +40,10 @@ def search(extension:str,directory:str):
 def delete(extension:str, directory:str):
     """ Suppression de fichier avec l'extension donné"""
     main(extension, directory, delete=True,)
-        # puis lancer en ligne de cmde:  python main_01typer.py delete
+        
 
 
 if __name__=="__main__":
    #typer.run(main)
    app()
 
-#en cmd taper les commande: 
-#   python main run extension nom_repertoire 
-#   python main search extension nom_repertoire 
-#   python main delete extension nom_repertoire 
