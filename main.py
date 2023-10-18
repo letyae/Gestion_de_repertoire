@@ -2,13 +2,17 @@ import typer
 from typing import Optional
 from pathlib import Path
 
+from Organiser_repertoire import Organiser_repertoire
+
 app=typer.Typer()
 
 @app.command('run')
-def main(extention: str,
+def main(extention: str="",
          directory: Optional[str]=typer.Argument(None, help="Repertoire ds lequel chercher"),
          delete: bool=typer.Option(False,help="Supprime les fichiers trouvées")):
+
     """Affiche les fichiers trouvés avec son extension"""
+    print(f"*** {directory} ********")
 
     if  directory:
         directory=Path(directory)
@@ -30,18 +34,23 @@ def main(extention: str,
             typer.echo(file)
 
 
-
 @app.command()
 def search(extension:str,directory:str):
     """ Recherche de fichier avec l'extension donné"""
+    
     main(extension, directory, delete=False)
     
 @app.command()
 def delete(extension:str, directory:str):
     """ Suppression de fichier avec l'extension donné"""
+    
     main(extension, directory, delete=True,)
-        
 
+@app.command()      
+def trie(directory:str):
+    """ Organiser tous les fichiers de meme extension ds un meme repertoire"""  
+
+    Organiser_repertoire(directory)
 
 if __name__=="__main__":
    #typer.run(main)
