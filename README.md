@@ -12,4 +12,4 @@ en ligne de commande taper les commandes  suivante:
 
 > python main delete extension chemin_repertoire
 
->python main trie extension chemin_repertoire
+>python main trie  chemin_repertoire
